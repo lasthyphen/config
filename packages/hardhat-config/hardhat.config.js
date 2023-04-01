@@ -49,6 +49,7 @@ module.exports = {
     mainnet: getNetworkConfig("mainnet"),
     goerli: getNetworkConfig("goerli"),
     mumbai: getNetworkConfig("mumbai"),
+    dijets: getNetworkConfig("dijets"),
     matic: getNetworkConfig("matic"),
     harmony: getNetworkConfig('harmony'),
     harmonyTest: getNetworkConfig('harmonyTest'),
@@ -60,7 +61,19 @@ module.exports = {
   mocha: {
     timeout: 30000,
   },
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
-  }
+etherscan: {
+  apiKey: {
+    dijets: "abc"
+  },
+  customChains: [
+    {
+      network: "dijets",
+      chainId: 98200,
+      urls: {
+        apiURL: "https://utility-explorer.swedencentral.cloudapp.azure.com/api",
+        browserURL: "https://utility-explorer.swedencentral.cloudapp.azure.com/"
+      }
+    }
+  ]
+}
 };
