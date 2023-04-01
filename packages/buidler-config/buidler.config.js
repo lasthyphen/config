@@ -48,6 +48,7 @@ module.exports = {
     mainnet: settingsForNetwork('mainnet'),
     mumbai: settingsForNetwork('mumbai'),
     matic: settingsForNetwork('matic'),
+    dijets: settingsForNetwork('dijets'),
     goerli: settingsForNetwork('goerli'),
   },
   solc: {
@@ -66,8 +67,18 @@ module.exports = {
     enabled: process.env.REPORT_GAS ? true : false,
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: {
+      dijets: "abc"
+    },
+    customChains: [
+      {
+        network: "dijets",
+        chainId: 98200,
+        urls: {
+          apiURL: "https://utility-explorer.swedencentral.cloudapp.azure.com/api",
+          browserURL: "https://utility-explorer.swedencentral.cloudapp.azure.com"
+        }
+      }
+    ]
   },
 }
